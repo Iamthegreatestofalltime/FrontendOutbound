@@ -21,7 +21,7 @@ export default function AuthForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        let url = 'http://localhost:3500/';
+        let url = 'https://outboundbe-tvtddw3maa-uc.a.run.app';
         let payload = {};
 
         switch (formType) {

@@ -25,7 +25,7 @@ export default function CompanyDashboard({ onEmployeeSelect }) {
 
   const fetchEmployees = async (id) => {
     try {
-      const response = await axios.get(`http://localhost:3500/company/${id}/employees`);
+      const response = await axios.get(`https://outboundbe-tvtddw3maa-uc.a.run.app/company/${id}/employees`);
       setEmployees(response.data);
     } catch (error) {
       console.error('Error fetching employees:', error);
@@ -37,7 +37,7 @@ export default function CompanyDashboard({ onEmployeeSelect }) {
 
   const fetchInvites = async (id) => {
     try {
-      const response = await axios.get(`http://localhost:3500/company-invites/${id}`);
+      const response = await axios.get(`https://outboundbe-tvtddw3maa-uc.a.run.app/company-invites/${id}`);
       setInvites(response.data);
     } catch (error) {
       console.error('Error fetching invites:', error);
@@ -46,7 +46,7 @@ export default function CompanyDashboard({ onEmployeeSelect }) {
 
   const handleInviteEmployee = async () => {
     try {
-      await axios.post('http://localhost:3500/invite-employee', {
+      await axios.post('https://outboundbe-tvtddw3maa-uc.a.run.app/invite-employee', {
         companyId,
         employeeEmail: newEmployeeEmail
       });
@@ -61,7 +61,7 @@ export default function CompanyDashboard({ onEmployeeSelect }) {
     setSelectedEmployee(employee);
     setAnalysis(null);
     try {
-      const response = await axios.get(`http://localhost:3500/employee-calls/${employee._id}`);
+      const response = await axios.get(`https://outboundbe-tvtddw3maa-uc.a.run.app/employee-calls/${employee._id}`);
       onEmployeeSelect(employee, response.data);
       
     } catch (error) {
@@ -69,7 +69,7 @@ export default function CompanyDashboard({ onEmployeeSelect }) {
       setError('Failed to fetch employee calls. Please try again later.');
     }
     try{
-      const analys = await axios.get(`http://localhost:3500/employee-analysis/${employee._id}`);
+      const analys = await axios.get(`https://outboundbe-tvtddw3maa-uc.a.run.app/employee-analysis/${employee._id}`);
       setAnalysis(analys.data);
     }
     catch (error){
@@ -82,7 +82,7 @@ export default function CompanyDashboard({ onEmployeeSelect }) {
     if (!selectedEmployee) return;
     try {
       setAnalyzing(true);
-      const response = await axios.post(`http://localhost:3500/analyze-employee/${selectedEmployee._id}`, { forceReanalysis: isReanalyze });
+      const response = await axios.post(`https://outboundbe-tvtddw3maa-uc.a.run.app/${selectedEmployee._id}`, { forceReanalysis: isReanalyze });
       setAnalysis(response.data);
     } catch (error) {
       console.error('Error analyzing employee:', error);

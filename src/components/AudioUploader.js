@@ -29,7 +29,7 @@ export default function AudioUploader() {
 
     try {
       setUploadStatus('Uploading...');
-      const response = await axios.post('http://localhost:3500/upload', formData, {
+      const response = await axios.post('https://outboundbe-tvtddw3maa-uc.a.run.app/upload', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       console.log('File uploaded successfully:', response.data);

@@ -17,7 +17,7 @@ export default function UserDashboard() {
 
   const fetchInvites = async (id) => {
     try {
-      const response = await axios.get(`http://localhost:3500/user-invites/${id}`);
+      const response = await axios.get(`https://outboundbe-tvtddw3maa-uc.a.run.app/user-invites/${id}`);
       setInvites(response.data);
     } catch (error) {
       console.error('Error fetching invites:', error);
@@ -26,7 +26,7 @@ export default function UserDashboard() {
 
   const handleInvitation = async (companyId, status) => {
     try {
-      await axios.post('http://localhost:3500/handle-invitation', {
+      await axios.post('https://outboundbe-tvtddw3maa-uc.a.run.app/handle-invitation', {
         userId,
         companyId,
         status

@@ -9,7 +9,7 @@ const fetchCalls = async (userId) => {
     throw new Error('User ID is required');
   }
   try {
-    const response = await axios.get(`http://localhost:3500/calls?userId=${userId}`);
+    const response = await axios.get(`https://outboundbe-tvtddw3maa-uc.a.run.app/calls?userId=${userId}`);
     return response.data;
   } catch (error) {
     console.error('Error fetching calls:', error);
