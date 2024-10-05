@@ -21,13 +21,13 @@ export default function AuthForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        let url = 'https://outboundbe-tvtddw3maa-uc.a.run.app';
+        let url = 'https://outboundbe-tvtddw3maa-uc.a.run.app';  // Base URL
         let payload = {};
-
+    
         switch (formType) {
             case 'userLogin':
             case 'companyLogin':
-                url += 'login';
+                url += '/login';  // Append '/login' endpoint to the base URL
                 payload = { 
                     username, 
                     password, 
@@ -36,7 +36,7 @@ export default function AuthForm() {
                 break;
             case 'userRegister':
             case 'companyRegister':
-                url += 'register';
+                url += '/register';  // Append '/register' endpoint to the base URL
                 payload = { 
                     username, 
                     password, 
@@ -46,10 +46,10 @@ export default function AuthForm() {
                 if (formType === 'companyRegister') payload.companyName = companyName;
                 break;
         }
-
+    
         try {
             console.log("Sending payload:", payload);
-            const response = await axios.post(url, payload);
+            const response = await axios.post(url, payload);  // Now 'url' has the full API endpoint
             console.log("Response from server:", response);
             
             if (response && response.data) {
@@ -73,7 +73,7 @@ export default function AuthForm() {
         } catch (err) {
             setError(err.response?.data?.message || "An error occurred. Please try again.");
         }
-    }
+    }    
 
     const renderForm = () => {
         return (
