@@ -29,7 +29,7 @@ export default function AudioUploader() {
 
     try {
       setUploadStatus('Uploading...');
-      const response = await axios.post('https://outboundbe-tvtddw3maa-uc.a.run.app/upload', formData, {
+      const response = await axios.post('https://outbound-tvtddw3maa-uc.a.run.app/upload', formData, {
         headers: { 
           'Content-Type': 'multipart/form-data',
           'Access-Control-Allow-Origin': '*',  // This might be unnecessary if the backend already handles it
